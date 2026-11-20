@@ -1,19 +1,57 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Block Dodger</title>
+<title>SOLMAR — Sun, Sea &amp; Stolen Cars</title>
 <style>
-  html, body { margin: 0; height: 100%; overflow: hidden; background: #11141b; }
-  #game { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
-  /* Read aloud, never shown: the status line screen readers announce. */
-  #status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0a0e16;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #wrap {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  canvas {
+    display: block;
+    width: 1280px;
+    height: 720px;
+    max-width: 100vw;
+    max-height: 100vh;
+    image-rendering: auto;
+    background: #1a2b1a;
+    cursor: crosshair;
+  }
+  #err {
+    position: fixed;
+    left: 12px;
+    bottom: 12px;
+    max-width: 640px;
+    color: #f87171;
+    font: 13px monospace;
+    white-space: pre-wrap;
+    z-index: 10;
+  }
 </style>
 </head>
 <body>
-<canvas id="game" aria-label="Block Dodger: move the paddle left and right to dodge falling blocks and catch coins"></canvas>
-<p id="status" role="status" aria-live="polite"></p>
+<div id="wrap"><canvas id="game" width="1280" height="720"></canvas></div>
+<div id="err"></div>
 <script type="module" src="./src/main.js"></script>
+<script>
+  // Surface load errors on screen so a broken build is obvious, not silent.
+  window.addEventListener('error', function (e) {
+    var el = document.getElementById('err');
+    if (el) el.textContent += (e.message || e.error) + '\n';
+  });
+</script>
 </body>
 </html>
