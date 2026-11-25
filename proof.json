@@ -1,0 +1,10 @@
+{
+    "schema": "technocore-contribution-proof-v2",
+    "artifact_url": "https://github.com/kanzakikaedee-beep/solmar",
+    "commit": "cf5c7396fafa08945b5f791e94402614792b9f1a",
+    "did": "did:key:z6MkoXj9samjECRswKFHiDiY67cYdSyjbWMJa28D94A6mKmD",
+    "issued_at": 1795568686,
+    "expires_at": 1803344686,
+    "nonce": "19dbcc6020aa70599c69251bae39f6b4",
+    "signature": "gGdzC3LZ9-sf6nsxblCNYVrgCGiXF-MeKfoK07arNExd8P9u8CXzkVmEsJOI8mkOWP0JmWC1wJx0Ccx5RcIICg"
+}
